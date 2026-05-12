@@ -1,8 +1,14 @@
 function Navbar() {
 
   return (
-    <nav>
-      <h2>Nav bar</h2>
+    <nav className="navbar">
+      <h2 className="logo">Cat Explorer</h2>
+
+      <ul className="nav-links">
+        <li>Home</li>
+        <li>Breed</li>
+        <li>Favorites</li>
+      </ul>
     </nav>
   )
 }
