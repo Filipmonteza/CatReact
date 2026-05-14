@@ -10,52 +10,229 @@ body {
   color: #222;
 }
 
-/* Navbar styles */
+/* Hero Section */
+.hero{
+    min-height: 90vh;
+
+    display :flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 2rem;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+
+    margin-bottom: 1.5rem;
+
+    color: #111;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+
+    margin-bottom: 2rem;
+
+    color: #555;
+}
+
+/* Button Explorer Home page*/
+.explore-btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 999px;
+  background: #111;
+  color: white;
+
+  font-size: 0.95rem;       /* 1. tydligare storlek */
+  font-family: inherit;     /* 1. ärver din sidas font istället för webbläsarens standard */
+  font-weight: 600;
+  letter-spacing: 0.02em;   /* 1. lite luftigare text */
+
+  cursor: pointer;
+  outline: none;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.explore-btn:hover {
+  background: #333;
+  transform: translateY(-3px);
+}
+
+.explore-btn:active {             /* 2. tryck-känsla — sjunker ner när man klickar */
+  transform: translateY(1px);
+  background: #000;
+}
+
+.explore-btn:focus-visible {      /* 3. tillgänglighet — syns bara vid tangentbordsnavigering */
+  box-shadow: 0 0 0 3px rgba(17, 17, 17, 0.25);
+}
+
+
+/* Footer */
+.footer {
+  text-align: center;
+
+  padding: 2rem;
+
+  background: white;
+
+  border-top: 1px solid rgba(0,0,0,0.08);
+
+  color: #555;
+}
+
+
+/* NAVBAR */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
 
-  padding: 1rem 2rem;
+  padding: 1rem 3rem;
 
-  background: white;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+
+  font-family: "Inter", sans-serif;
 }
 
+/* LOGO */
 .logo {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  color: #111;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
 }
 
+.logo:hover {
+  opacity: 0.8;
+}
+
+/* LINKS */
 .nav-links {
   display: flex;
-  gap: 1.5rem;
+  align-items: center;
+  gap: 2rem;
 
   list-style: none;
 }
 
-.nav-links li {
+.nav-links li a {
+  position: relative;
+
+  text-decoration: none;
+  color: #222;
+
+  font-weight: 500;
+
+  transition: 0.3s ease;
+}
+
+/* Underline animation */
+.nav-links li a::after {
+  content: "";
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0%;
+  height: 2px;
+
+  background: #111;
+
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  width: 100%;
+}
+
+.nav-links li a:hover {
+  color: black;
+}
+
+/* RIGHT SIDE */
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+/* CART BUTTON */
+.cart-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding: 0.7rem 1.3rem;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #111;
+  color: white;
+
+  font-weight: 600;
+
   cursor: pointer;
-  transition: 0.3s;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
 }
 
-.nav-links li:hover {
-  color: #777;
+.cart-btn:hover {
+  background: #333;
+  transform: translateY(-2px);
 }
 
-/* Hero section styles */
+/* RESPONSIVE */
 @media (max-width: 768px) {
-
   .navbar {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .hero-content h1 {
-    font-size: 2.5rem;
+    padding: 1rem 1.5rem;
   }
 
   .nav-links {
     gap: 1rem;
   }
 
+  .nav-links li a {
+    font-size: 0.95rem;
+  }
+
+  .cart-btn {
+    padding: 0.6rem 1rem;
+  }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    .hero-content p {
+     font-size: 1rem;
+    }
 }

@@ -1,3 +1,4 @@
+import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
 import { useEffect, useState } from "react"
 
@@ -23,9 +24,13 @@ function Home() {
             Explore different cat breeds, learn about their unique characteristics, and find your perfect feline companion. Whether you're a cat lover or just curious, our app provides a delightful experience to discover the wonderful world of cats.
           </p>
 
-          <button className="explore-btn">Explore Breeds</button>
+          <button
+           className="explore-btn">Explore Breeds
+           </button>
+
         </div>
       </main>
+      <Footer />
     </>
   )
 }
