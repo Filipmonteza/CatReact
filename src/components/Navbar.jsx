@@ -1,4 +1,5 @@
 import { ShoppingCart } from "lucide-react"
+import { Link } from "react-router-dom"
 // Navbar component to be used across the app for navigation
 function Navbar() {
 
@@ -10,19 +11,19 @@ function Navbar() {
 
       <ul className="nav-links">
         <li>
-            <a href="/">Home</a>
+            <Link to="/">Home</Link>
         </li>
 
         <li>
-            <a href="/owners">Owner</a>
+            <Link to="/owners">Owner</Link>
         </li>
 
         <li>
-            <a href="/cats">Cats</a>
+            <Link to="/cats">Cats</Link>
         </li>
         
         <li>
-            <a href="/contact">Contact</a>
+            <Link to="/contact">Contact</Link>
         </li>
       </ul>
 
