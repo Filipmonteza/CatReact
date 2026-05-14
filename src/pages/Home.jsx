@@ -1,6 +1,9 @@
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
+
 import { useEffect, useState } from "react"
+
+import { fetchCats } from "../services/Api"
 
 function Home() {
 
@@ -9,9 +12,30 @@ function Home() {
   const [error, setError] = useState(null)
 
   useEffect(() => {
+    async function loadCats() {
+      try {
+        const data = await fetchCats()
+        setCats(data)
+      } catch (err) {
+        setError(err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    loadCats()
 
   }, [])
 
+  if (loading) {
+    return <h1>Loading...</h1>
+  }
+
+  if (error) {
+    return <h1>Error: {error}</h1>
+  }
+
+  
   return (
     <>
       <Navbar />
