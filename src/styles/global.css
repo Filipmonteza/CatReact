@@ -211,6 +211,62 @@ body {
   transform: translateY(-2px);
 }
 
+/*CatCard*/
+.cat-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(300px, 1fr));
+
+  gap: 2rem;
+
+  padding: 4rem 3rem;
+}
+
+.cat-card {
+  background: white;
+
+  padding: 2rem;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.06);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.1);
+}
+
+.cat-card h2 {
+  margin-bottom: 1rem;
+
+  font-size: 1.6rem;
+}
+
+.cat-card p {
+  margin-bottom: 1rem;
+
+  line-height: 1.6;
+
+  color: #555;
+}
+
+.description {
+  margin-top: 1rem;
+}
+
+.cat-grid {
+  padding: 2rem 1rem;
+}
+
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {

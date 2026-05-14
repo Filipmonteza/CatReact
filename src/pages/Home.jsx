@@ -1,5 +1,6 @@
 import Footer from "../components/Footer"
 import Navbar from "../components/Navbar"
+import CatList from "../Components/CatList"
 
 import { useEffect, useState } from "react"
 
@@ -35,7 +36,7 @@ function Home() {
     return <h1>Error: {error}</h1>
   }
 
-  
+
   return (
     <>
       <Navbar />
@@ -54,6 +55,9 @@ function Home() {
 
         </div>
       </main>
+
+      <CatList cats={cats} />
+      
       <Footer />
     </>
   )
