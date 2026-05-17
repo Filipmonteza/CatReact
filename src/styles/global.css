@@ -10,6 +10,48 @@ body {
   color: #222;
 }
 
+/* Owner Page */
+.owner-page {
+
+  min-height: 80vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 3rem;
+}
+
+.owner-card {
+  max-width: 600px;
+
+  background: white;
+
+  padding: 3rem;
+
+  border-radius: 20px;
+
+  text-align: center;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+.owner-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.owner-card p {
+  font-size: 1.8rem;
+  line-height: 1.8;
+  margin-top: 1rem;
+  color: #555;
+}
+
 /* Search Container */
 
 /* Justerar Sökfältet i mitten av sidan och ger det lite avstånd från andra element */
