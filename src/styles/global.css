@@ -10,6 +10,49 @@ body {
   color: #222;
 }
 
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  margin-bottom: 4rem;
+}
+
+.pagination button {
+  width: 45px;
+  height: 45px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: white;
+
+  cursor: pointer;
+
+  font-weight: 600;
+
+  box-shadow:
+    0 5px 15px rgba(0,0,0,0.08);
+
+  transition: 0.3s ease;
+}
+
+.pagination button:hover {
+  transform: translateY(-2px);
+}
+
+.pagination button.active-page {
+  background: #111;
+  color: white;
+}
+
+.active-page {
+  background: black !important;
+  color: white;
+}
+
+
 /* Owner Page */
 .owner-page {
 
