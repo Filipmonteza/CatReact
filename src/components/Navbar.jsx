@@ -15,7 +15,7 @@ function Navbar() {
         </li>
 
         <li>
-            <Link to="/owners">Owner</Link>
+            <Link to="/owner">Owner</Link>
         </li>
 
         <li>
@@ -24,6 +24,10 @@ function Navbar() {
         
         <li>
             <Link to="/contact">Contact</Link>
+        </li>
+
+        <li>
+            <Link to="/cart">Cart</Link>
         </li>
       </ul>
 

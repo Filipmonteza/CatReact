@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom"
 
 import Home from "./pages/Home"
 import Cats from "./pages/Cats"
+import Owner from "./pages/Owner"
 
 function App() {
 
@@ -14,6 +15,8 @@ function App() {
       <Route path="/" element={<Home />} />
 
       <Route path="/cats" element={<Cats />} />
+      
+      <Route path="/owner" element={<Owner />} />
 
 
     </Routes>
