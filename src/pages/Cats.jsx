@@ -3,11 +3,17 @@ import Footer from "../components/Footer"
 import CatList from "../components/CatList"
 import { useEffect, useState } from "react"
 import { fetchCats } from "../services/Api"
+import SearchBar from "../components/SearchBar"
 
 function Cats() {
   const [cats, setCats] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
+  const [search, setSearch] = useState("")
+
+  const filtereredcats = cats.filter((cat) =>
+    cat.name.toLowerCase().includes(search.toLowerCase())
+  )
 
   useEffect(() => {
     async function loadCats() {
@@ -31,9 +37,10 @@ function Cats() {
     <>
       <Navbar />
 
-      <main>
-        <h1>All Cat Breeds</h1>
-        <CatList cats={cats} />
+      <main className="cats-page">
+        <h1 className="page-title">All Cat Breeds</h1>
+        <SearchBar search={search} setSearch={setSearch} />
+        <CatList cats={filtereredcats} />
       </main>
 
       <Footer />
