@@ -9,34 +9,72 @@ import Owner from "./pages/Owner"
 import Cart from "./pages/Cart"
 
 function App() {
+
   const [cartItems, setCartItems] = useState([])
 
-  // Function to add a cat to the cart
+  // Add cat to cart
   const addToCart = (cat) => {
 
-    // Check if cat is already in cart
-    const AlreadyExists = cartItems.some((item) => item.id === cat.id
-  )
-      // Prevent adding duplicates to cart
-    if (AlreadyExists) {
+    const alreadyExists =
+      cartItems.some(
+        (item) => item.id === cat.id
+      )
+
+    // Prevent duplicates
+    if (alreadyExists) {
       return
     }
 
-    // Add cat to cart
-    setCartItems([...cartItems, cat])
+    setCartItems([
+      ...cartItems,
+      cat
+    ])
+  }
+
+  // Remove cat from cart
+  const removeFromCart = (id) => {
+
+    setCartItems(
+      cartItems.filter(
+        cat => cat.id !== id
+      )
+    )
+  }
 
   return (
 
     <Routes>
 
-      <Route path="/" element={<Home />} />
+      <Route
+        path="/"
+        element={<Home />}
+      />
 
-      <Route path="/cats" element={<Cats />} />
-      
-      <Route path="/owner" element={<Owner />} />
+      <Route
+        path="/cats"
+        element={
+          <Cats
+            addToCart={addToCart}
+            cartItems={cartItems}
+          />
+        }
+      />
 
-      <Route path="/cart" element={<Cart />} />
+      <Route
+        path="/owner"
+        element={<Owner />}
+      />
 
+      <Route
+        path="/cart"
+        element={
+          <Cart
+            cart={cartItems}
+            removeFromCart={removeFromCart}
+            setCart={setCartItems}
+          />
+        }
+      />
 
     </Routes>
 
