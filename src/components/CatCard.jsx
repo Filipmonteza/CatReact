@@ -2,8 +2,13 @@ import { useEffect, useState } from "react"
 import { fetchCatImage } from "../services/Api"
 
 
-function CatCard({ cat }) {
+function CatCard({ cat, addToCart, cartItems }) {
     const [imageUrl, setImageUrl] = useState(null)
+
+    const isInCart =
+    cartItems.some(
+    item => item.id === cat.id
+  )
 
     useEffect(() => {
         fetchCatImage(cat.id)
@@ -24,9 +29,18 @@ function CatCard({ cat }) {
             <p><strong>Origin:</strong> {cat.origin}</p>
             <p><strong>Temperament:</strong> {cat.temperament}</p>
             <p className="description">{cat.description}</p>
-            <button className="learn-more">Learn More</button>
+            <button 
+                className="cart-add-btn" 
+                onClick={() => addToCart(cat)}
+                disabled={isInCart}
+            >
+                {isInCart 
+                ? "Added to Cart" 
+                : "Add to Cart"}
+            </button>
         </div>
     )
 }
+
 
 export default CatCard
