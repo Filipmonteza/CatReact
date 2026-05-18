@@ -24,7 +24,7 @@ function CatCard({ cat }) {
             <p><strong>Origin:</strong> {cat.origin}</p>
             <p><strong>Temperament:</strong> {cat.temperament}</p>
             <p className="description">{cat.description}</p>
-
+            <button className="learn-more">Learn More</button>
         </div>
     )
 }
