@@ -1,42 +1,43 @@
 import { ShoppingCart } from "lucide-react"
 import { Link } from "react-router-dom"
-// Navbar component to be used across the app for navigation
-function Navbar() {
 
+function Navbar() {
   return (
     <nav className="navbar">
+
       <h2 className="logo">
         Cat Explorer
-        </h2>
+      </h2>
 
+      {/* Navigation Links */}
       <ul className="nav-links">
+
         <li>
-            <Link to="/">Home</Link>
+          <Link to="/">Home</Link>
         </li>
 
         <li>
-            <Link to="/owner">Owner</Link>
+          <Link to="/owner">Owner</Link>
         </li>
 
         <li>
-            <Link to="/cats">Cats</Link>
-        </li>
-        
-        <li>
-            <Link to="/contact">Contact</Link>
+          <Link to="/cats">Cats</Link>
         </li>
 
         <li>
-            <Link to="/cart">Cart</Link>
+          <Link to="/contact">Contact</Link>
         </li>
+
       </ul>
 
+      {/* Cart Button */}
       <div className="nav-right">
-        <button className="cart-btn">
+        <Link to="/cart" className="cart-btn">
           <ShoppingCart size={20} />
           Cart
-        </button>
+        </Link>
       </div>
+
     </nav>
   )
 }

@@ -6,7 +6,7 @@ import { fetchCats } from "../services/Api"
 import SearchBar from "../components/SearchBar"
 import Pagination from "../components/Pagination"
 
-function Cats() {
+function Cats({ addToCart, cartItems }) {
   const [cats, setCats] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -58,8 +58,8 @@ function Cats() {
           setCurrentPage(1)
         }}
         />
-        
-        <CatList cats={currentCats} />
+
+        <CatList cats={currentCats} addToCart={addToCart} cartItems={cartItems} />
 
         <Pagination
           totalCats={filteredCats.length}

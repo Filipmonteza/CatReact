@@ -1,13 +1,19 @@
 import CatCard from "./CatCard";
 
-function CatList({ cats }) {
+function CatList({ 
+     cats,
+     addToCart,
+     cartItems 
+    }) {
     return (
         <section className="cat-grid">
 
             {cats.map(cat => (
                 <CatCard
                  key={cat.id}
-                 cat={cat} 
+                 cat={cat}
+                 addToCart={addToCart}
+                 cartItems={cartItems}
                 />
             ))}
         </section>
