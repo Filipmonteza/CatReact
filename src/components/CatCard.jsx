@@ -1,47 +1,58 @@
 import { useEffect, useState } from "react"
+import { Card, Button, Badge, Spinner } from "react-bootstrap"
 import { fetchCatImage } from "../services/Api"
 
-
 function CatCard({ cat, addToCart }) {
-    const [imageUrl, setImageUrl] = useState(null)
+  const [imageUrl, setImageUrl] = useState(null)
+  const [loading, setLoading] = useState(true)
 
-    // const isInCart =
-    // cartItems.some(
-    // item => item.id === cat.id
-  
+  useEffect(() => {
+    fetchCatImage(cat.id)
+      .then(setImageUrl)
+      .catch(() => setImageUrl(null))
+      .finally(() => setLoading(false))
+  }, [cat.id])
 
-    useEffect(() => {
-        fetchCatImage(cat.id)
-        .then(setImageUrl)
-        .catch(() => setImageUrl(null))
-    }, [cat.id])
+  return (
+    <Card className="h-100 shadow-sm">
 
-    return (
-        <div className="cat-card">
-
-           {imageUrl
-            ? <img src={imageUrl} alt={cat.name} className="cat-card__img" />
-            : <div className="cat-card__no-img">No image</div>
-        }
-
-            <h2>{cat.name}</h2>
-
-            <p><strong>Origin:</strong> {cat.origin}</p>
-            <p><strong>Temperament:</strong> {cat.temperament}</p>
-            <p className="description">{cat.description}</p>
-            <button 
-                className="cart-add-btn" 
-                onClick={() => addToCart(cat)}
-                // disabled={isInCart}
-            >
-                {/* {isInCart 
-                ? "Added to Cart" 
-                : "Add to Cart"} */}
-                Add to Cart
-            </button>
+      {loading ? (
+        <div className="d-flex justify-content-center align-items-center" style={{ height: "200px" }}>
+          <Spinner animation="border" variant="secondary" />
         </div>
-    )
-}
+      ) : imageUrl ? (
+        <Card.Img
+          variant="top"
+          src={imageUrl}
+          alt={cat.name}
+          style={{ height: "200px", objectFit: "cover" }}
+        />
+      ) : (
+        <div className="d-flex justify-content-center align-items-center bg-secondary text-white" style={{ height: "200px" }}>
+          No image
+        </div>
+      )}
 
+      <Card.Body className="d-flex flex-column">
+        <Card.Title>{cat.name}</Card.Title>
+
+        <Card.Text as="div" className="mb-3">
+          <p className="mb-1"><strong>Origin:</strong> {cat.origin}</p>
+          <p className="mb-1"><strong>Temperament:</strong> {cat.temperament}</p>
+          <p className="text-muted small">{cat.description}</p>
+        </Card.Text>
+
+        <Button
+          variant="dark"
+          className="mt-auto w-100"
+          onClick={() => addToCart(cat)}
+        >
+          Add to Cart
+        </Button>
+
+      </Card.Body>
+    </Card>
+  )
+}
 
 export default CatCard

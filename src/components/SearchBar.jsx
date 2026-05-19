@@ -1,22 +1,23 @@
+import { Form, InputGroup } from "react-bootstrap"
+import { Search } from "lucide-react"
+
 function SearchBar({ search, setSearch }) {
-    
-    return (
-        <div className="search-container">
-            <input 
-                type="text" 
-                placeholder="Search for a cat breed..."
+  return (
+    <InputGroup className="mb-4 mx-auto" style={{ maxWidth: "500px" }}>
 
-                value={search} 
+      <InputGroup.Text>
+        <Search size={16} />
+      </InputGroup.Text>
 
-                onChange={(e) =>
-                    setSearch(e.target.value)
-                }
-                
-                className="search-input"
+      <Form.Control
+        type="text"
+        placeholder="Search for a cat breed..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
 
-            />
-        </div>
-    )
+    </InputGroup>
+  )
 }
 
 export default SearchBar

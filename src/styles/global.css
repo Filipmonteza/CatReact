@@ -148,39 +148,6 @@ body {
   color: #555;
 }
 
-/* Search Container */
-
-/* Justerar Sökfältet i mitten av sidan och ger det lite avstånd från andra element */
-.search-container {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.search-input {
-  width: 100%;
-  max-width: 500px;
-
-  padding: 1rem 1.5rem;
-
-  border: none;
-  border-radius: 999px;
-
-  background: white;
-
-  box-shadow:
-    0 5px 20px rgba(0,0,0,0.08);
-
-  font-size: 1rem;
-
-  outline: none;
-}
-
-.search-input:focus {
-  box-shadow:
-    0 5px 25px rgba(0,0,0,0.15);
-}
-
 /* Page Title  Cats.jsx */ 
 .page-title {
  text-align: center;
@@ -367,82 +334,6 @@ body {
   transform: translateY(-2px);
 }
 
-/*CatCard*/
-.cat-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(300px, 1fr));
-
-  gap: 2rem;
-
-  padding: 4rem 3rem;
-}
-
-.cat-card {
-  background: white;
-
-  padding: 2rem;
-
-  border-radius: 20px;
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.06);
-
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.cat-card:hover {
-  transform: translateY(-8px);
-
-  box-shadow:
-    0 20px 40px rgba(0,0,0,0.1);
-}
-
-.cat-card h2 {
-  margin-bottom: 1rem;
-
-  font-size: 1.6rem;
-}
-
-.cat-card p {
-  margin-bottom: 1rem;
-
-  line-height: 1.6;
-
-  color: #555;
-}
-
-.description {
-  margin-top: 1rem;
-}
-
-.cat-grid {
-  padding: 2rem 1rem;
-}
-
-/*CardImg*/
-.cat-card__img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
-
-.cat-card__no-img {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-}
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
