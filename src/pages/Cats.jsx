@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar"
+import Navbar from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import CatList from "../components/CatList"
 import { useEffect, useState } from "react"
