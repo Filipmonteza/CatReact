@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Cats from "./pages/Cats"
 import Owner from "./pages/Owner"
 import Cart from "./pages/Cart"
+import CatDetails from "./pages/CatDetails"
 
 function App() {
 
@@ -14,16 +15,6 @@ function App() {
 
   // Add cat to cart
   const addToCart = (cat) => {
-
-    // const alreadyExists =
-    //   cartItems.some(
-    //     (item) => item.id === cat.id
-    //   )
-
-    // // Prevent duplicates
-    // if (alreadyExists) {
-    //   return
-    // }
 
     setCartItems([
       ...cartItems,
@@ -58,6 +49,13 @@ function App() {
             cartItems={cartItems}
           />
         }
+      />
+
+      <Route
+        path="/cat/:id"
+        element={<CatDetails
+          addToCart={addToCart}
+        />}
       />
 
       <Route
