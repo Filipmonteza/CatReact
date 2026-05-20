@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Card, Button, Badge, Spinner } from "react-bootstrap"
 import { fetchCatImage } from "../services/Api"
+import { Link } from "react-router-dom"
 
 function CatCard({ cat, addToCart }) {
   const [imageUrl, setImageUrl] = useState(null)
@@ -50,6 +51,15 @@ function CatCard({ cat, addToCart }) {
           Add to Cart
         </Button>
 
+        <Button
+          as={Link}
+          to={`/cat/${cat.id}`}
+          variant="outline-dark"
+          className="mt-2"
+        >
+          View Details
+        </Button>
+        
       </Card.Body>
     </Card>
   )
