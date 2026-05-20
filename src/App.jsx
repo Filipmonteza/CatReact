@@ -15,15 +15,15 @@ function App() {
   // Add cat to cart
   const addToCart = (cat) => {
 
-    const alreadyExists =
-      cartItems.some(
-        (item) => item.id === cat.id
-      )
+    // const alreadyExists =
+    //   cartItems.some(
+    //     (item) => item.id === cat.id
+    //   )
 
-    // Prevent duplicates
-    if (alreadyExists) {
-      return
-    }
+    // // Prevent duplicates
+    // if (alreadyExists) {
+    //   return
+    // }
 
     setCartItems([
       ...cartItems,

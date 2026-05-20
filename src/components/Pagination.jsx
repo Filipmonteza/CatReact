@@ -1,47 +1,44 @@
-function Pagination({
+import { Pagination } from "react-bootstrap"
 
+function PaginationComp({
   totalCats,
   catsPerPage,
   currentPage,
   setCurrentPage
-
 }) {
 
-  const totalPages =
-    Math.ceil(totalCats / catsPerPage)
+  const totalPages = Math.ceil(totalCats / catsPerPage)
 
   const pages = []
-
   for (let i = 1; i <= totalPages; i++) {
     pages.push(i)
   }
 
   return (
+    <Pagination className="justify-content-center mt-4">
 
-    <div className="pagination">
+      <Pagination.Prev
+        onClick={() => setCurrentPage(p => p - 1)}
+        disabled={currentPage === 1}
+      />
 
       {pages.map((page) => (
-
-        <button
+        <Pagination.Item
           key={page}
-
-          onClick={() =>
-            setCurrentPage(page)
-          }
-
-          className={
-            page === currentPage
-              ? "active-page"
-              : ""
-          }
+          active={page === currentPage}
+          onClick={() => setCurrentPage(page)}
         >
           {page}
-        </button>
-
+        </Pagination.Item>
       ))}
 
-    </div>
+      <Pagination.Next
+        onClick={() => setCurrentPage(p => p + 1)}
+        disabled={currentPage === totalPages}
+      />
+
+    </Pagination>
   )
 }
 
-export default Pagination
+export default PaginationComp

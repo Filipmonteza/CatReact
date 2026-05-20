@@ -7,7 +7,11 @@ export async function fetchCats() {
         throw new Error("Failed to fetch cats")
     }
 
-    return await response.json()
+    const data = await response.json()
+    
+    return data.filter(
+    (cat, index, self) => index === self.findIndex(c => c.id === cat.id)
+  )
 }
 
 export async function fetchCatImage(breedId) {
