@@ -1,7 +1,7 @@
 import Navbar from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import { Container, Card, Badge } from "react-bootstrap"
-import { ExternalLink, Mail, Phone, MapPin } from "lucide-react"
+import { Link45deg, Envelope, Telephone, GeoAlt } from "react-bootstrap-icons"
 
 function Owner() {
   return (
@@ -32,16 +32,16 @@ function Owner() {
 
             <div className="d-flex flex-column gap-2 text-start mt-3">
               <div className="d-flex align-items-center gap-2">
-                <Mail size={18} /> <span>filip@catexplorer.com</span>
+                <Envelope size={18} /> <span>filip@catexplorer.com</span>
               </div>
               <div className="d-flex align-items-center gap-2">
-                <Phone size={18} /> <span>+46 70 123 45 67</span>
+                <Telephone size={18} /> <span>+46 70 123 45 67</span>
               </div>
               <div className="d-flex align-items-center gap-2">
-                <MapPin size={18} /> <span>Stockholm, Sweden</span>
+                <GeoAlt size={18} /> <span>Stockholm, Sweden</span>
               </div>
               <div className="d-flex align-items-center gap-2">
-                <ExternalLink size={18} />
+                <Link45deg size={18} />
                 <a href="https://github.com" target="_blank" rel="noreferrer">github.com/filip</a>
               </div>
             </div>

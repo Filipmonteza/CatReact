@@ -1,5 +1,5 @@
 import { Form, InputGroup } from "react-bootstrap"
-import { Search } from "lucide-react"
+import { Search } from "react-bootstrap-icons"
 
 function SearchBar({ search, setSearch }) {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Container, Row, Col, Card, Button, ButtonGroup, Modal, Form } from "react-bootstrap"
-import { Trash } from "lucide-react"
+import { CartFill } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import { useCart } from "../context/CartContext"
@@ -63,7 +63,7 @@ function Cart() {
                           size="sm"
                           onClick={() => removeFromCart(cat.id)}
                         >
-                          <Trash size={16} />
+                          <CartFill size={16} />
                         </Button>
                         <Button
                           variant="outline-secondary"
