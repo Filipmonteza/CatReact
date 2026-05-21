@@ -21,7 +21,6 @@ function NavbarComp() {
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/owner">Owner</Nav.Link>
             <Nav.Link as={Link} to="/cats">Cats</Nav.Link>
-            <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
           </Nav>
 
           <Nav>
