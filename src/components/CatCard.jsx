@@ -39,11 +39,9 @@ function CatCard({ cat }) {
       <Card.Body className="d-flex flex-column">
         <Card.Title>{cat.name}</Card.Title>
 
-        {/* <Card.Text as="div" className="mb-3">
+        <Card.Text as="div" className="mb-3">
           <p className="mb-1"><strong>Origin:</strong> {cat.origin}</p>
-          <p className="mb-1"><strong>Temperament:</strong> {cat.temperament}</p>
-          <p className="text-muted small">{cat.description}</p>
-        </Card.Text>  Description info on CatCard */}
+        </Card.Text>
 
         <Button
           variant="dark"
