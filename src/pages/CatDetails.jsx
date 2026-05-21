@@ -65,6 +65,7 @@ function CatDetails({ addToCart }) {
               variant="top"
               src={imageUrl}
               alt={cat.name}
+              className="img-fluid w-400"
               style={{ height: "400px", objectFit: "cover" }}
             />
           )}
