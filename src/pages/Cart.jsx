@@ -1,12 +1,12 @@
 import { useState } from "react"
-import { Container, Row, Col, Card, Button, Modal, Form } from "react-bootstrap"
+import { Container, Row, Col, Card, Button, ButtonGroup, Modal, Form } from "react-bootstrap"
 import { Trash } from "lucide-react"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import { useCart } from "../context/CartContext"
 
 function Cart() {
-  const { cartItems, removeFromCart, setCart } = useCart()
+  const { cartItems, removeFromCart, decreaseQuantity, increaseQuantity, setCart } = useCart()
   
   const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
@@ -50,13 +50,29 @@ function Cart() {
                           <strong>Quantity:</strong> {cat.quantity}
                         </Card.Text>
                       </div>
-                      <Button
-                        variant="outline-danger"
-                        size="sm"
-                        onClick={() => removeFromCart(cat.id)}
-                      >
-                        <Trash size={16} />
-                      </Button>
+                      <ButtonGroup>
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() => decreaseQuantity(cat.id)}
+                        >
+                          -
+                        </Button>
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() => removeFromCart(cat.id)}
+                        >
+                          <Trash size={16} />
+                        </Button>
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() => increaseQuantity(cat.id)}
+                        >
+                          +
+                        </Button>
+                      </ButtonGroup>
                     </Card.Body>
                   </Card>
                 </Col>
