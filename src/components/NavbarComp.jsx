@@ -1,8 +1,13 @@
-import { Navbar, Nav, Container, Button } from "react-bootstrap"
+import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap"
 import { ShoppingCart } from "lucide-react"
 import { Link } from "react-router-dom"
+import {useCart} from "../context/CartContext"
 
 function NavbarComp() {
+  const { cartItems } = useCart()
+
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
+
   return (
     <Navbar bg="dark" variant="dark" expand="md"> 
       <Container>
@@ -21,10 +26,13 @@ function NavbarComp() {
 
           <Nav>
             <Button as={Link} to="/cart" variant="outline-light" className="d-flex align-items-center gap-2">
-              <ShoppingCart size={20} />
-              Cart
-            </Button>
-          </Nav>
+            <ShoppingCart size={20} />
+            Cart
+            {totalItems > 0 && (
+            <Badge bg="danger" pill>{totalItems}</Badge>
+            )}
+        </Button>
+      </Nav>
         </Navbar.Collapse>
 
       </Container>
