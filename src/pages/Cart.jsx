@@ -20,6 +20,10 @@ function Cart() {
   }
 
   const handleOrder = () => {
+    if (!formData.name || !formData.email || !formData.address) {
+      alert("Please fill in all fields to complete your order.")
+      return
+    }
     setShowModal(false)
     setCart([])
     alert(`Order confirmed! Thank you, ${formData.name}! Your order will be delivered to ${formData.address}.`)
@@ -103,6 +107,7 @@ function Cart() {
                 placeholder="Enter your name"
                 value={formData.name}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
 
@@ -114,6 +119,7 @@ function Cart() {
                 placeholder="Enter your email"
                 value={formData.email}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
 
@@ -126,6 +132,7 @@ function Cart() {
                 placeholder="Enter your delivery address"
                 value={formData.address}
                 onChange={handleChange}
+                required
               />
             </Form.Group>
           </Form>
