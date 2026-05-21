@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react"
-import { Card, Button, Badge, Spinner } from "react-bootstrap"
+import { Card, Button, Spinner } from "react-bootstrap"
 import { fetchCatImage } from "../services/Api"
 import { Link } from "react-router-dom"
+import { useCart } from "../context/CartContext"
 
-function CatCard({ cat, addToCart }) {
+function CatCard({ cat }) {
   const [imageUrl, setImageUrl] = useState(null)
   const [loading, setLoading] = useState(true)
+    const {addToCart} = useCart()
 
   useEffect(() => {
     fetchCatImage(cat.id)
@@ -39,8 +41,6 @@ function CatCard({ cat, addToCart }) {
 
         <Card.Text as="div" className="mb-3">
           <p className="mb-1"><strong>Origin:</strong> {cat.origin}</p>
-          <p className="mb-1"><strong>Temperament:</strong> {cat.temperament}</p>
-          <p className="text-muted small">{cat.description}</p>
         </Card.Text>
 
         <Button

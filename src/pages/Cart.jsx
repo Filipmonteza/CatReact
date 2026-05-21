@@ -1,10 +1,13 @@
 import { useState } from "react"
-import { Container, Row, Col, Card, Button, Modal, Form } from "react-bootstrap"
-import { Trash } from "lucide-react"
+import { Container, Row, Col, Card, Button, ButtonGroup, Modal, Form } from "react-bootstrap"
+import { CartFill } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
+import { useCart } from "../context/CartContext"
 
-function Cart({ cart, removeFromCart, setCart }) {
+function Cart() {
+  const { cartItems, removeFromCart, decreaseQuantity, increaseQuantity, setCart } = useCart()
+  
   const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
     name: "",
@@ -29,12 +32,12 @@ function Cart({ cart, removeFromCart, setCart }) {
       <Container className="py-5">
         <h1 className="mb-4">Your Cart</h1>
 
-        {cart.length === 0 ? (
+        {cartItems.length === 0 ? (
           <p className="text-muted">No cats added yet.</p>
         ) : (
           <>
             <Row className="g-3 mb-4">
-              {cart.map((cat) => (
+              {cartItems.map((cat) => (
                 <Col key={cat.id} xs={12} md={6} lg={4}>
                   <Card className="shadow-sm h-100">
                     <Card.Body className="d-flex justify-content-between align-items-center">
@@ -43,14 +46,33 @@ function Cart({ cart, removeFromCart, setCart }) {
                         <Card.Text className="text-muted mb-0">
                           <strong>Origin:</strong> {cat.origin}
                         </Card.Text>
+                        <Card.Text className="mb-0">
+                          <strong>Quantity:</strong> {cat.quantity}
+                        </Card.Text>
                       </div>
-                      <Button
-                        variant="outline-danger"
-                        size="sm"
-                        onClick={() => removeFromCart(cat.id)}
-                      >
-                        <Trash size={16} />
-                      </Button>
+                      <ButtonGroup>
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() => decreaseQuantity(cat.id)}
+                        >
+                          -
+                        </Button>
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() => removeFromCart(cat.id)}
+                        >
+                          <CartFill size={16} />
+                        </Button>
+                        <Button
+                          variant="outline-secondary"
+                          size="sm"
+                          onClick={() => increaseQuantity(cat.id)}
+                        >
+                          +
+                        </Button>
+                      </ButtonGroup>
                     </Card.Body>
                   </Card>
                 </Col>
@@ -66,7 +88,6 @@ function Cart({ cart, removeFromCart, setCart }) {
         )}
       </Container>
 
-      {/* Order Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>Complete Your Order</Modal.Title>

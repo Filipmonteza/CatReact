@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { Card, Container, Spinner, Button, Row, Col } from "react-bootstrap"
-import { ShoppingCart, ArrowLeft } from "lucide-react"
+import { Cart, ArrowLeft } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import { fetchCats, fetchCatImage } from "../services/Api"
@@ -65,6 +65,7 @@ function CatDetails({ addToCart }) {
               variant="top"
               src={imageUrl}
               alt={cat.name}
+              className="img-fluid w-400"
               style={{ height: "400px", objectFit: "cover" }}
             />
           )}
@@ -93,7 +94,7 @@ function CatDetails({ addToCart }) {
               className="mt-3 d-flex align-items-center gap-2"
               onClick={() => addToCart(cat)}
             >
-              <ShoppingCart size={20} /> Add to Cart
+              <Cart size={20} /> Add to Cart
             </Button>
 
           </Card.Body>
