@@ -1,8 +1,6 @@
 import "./styles/global.css"
-import { useState } from "react"
 
 import { Routes, Route } from "react-router-dom"
-
 import Home from "./pages/Home"
 import Cats from "./pages/Cats"
 import Owner from "./pages/Owner"
@@ -11,26 +9,6 @@ import CatDetails from "./pages/CatDetails"
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([])
-
-  // Add cat to cart
-  const addToCart = (cat) => {
-
-    setCartItems([
-      ...cartItems,
-      cat
-    ])
-  }
-
-  // Remove cat from cart
-  const removeFromCart = (id) => {
-
-    setCartItems(
-      cartItems.filter(
-        cat => cat.id !== id
-      )
-    )
-  }
 
   return (
 
@@ -43,19 +21,12 @@ function App() {
 
       <Route
         path="/cats"
-        element={
-          <Cats
-            addToCart={addToCart}
-            cartItems={cartItems}
-          />
-        }
+        element={<Cats  />}
       />
 
       <Route
         path="/cat/:id"
-        element={<CatDetails
-          addToCart={addToCart}
-        />}
+        element={<CatDetails />}
       />
 
       <Route
@@ -65,14 +36,9 @@ function App() {
 
       <Route
         path="/cart"
-        element={
-          <Cart
-            cart={cartItems}
-            removeFromCart={removeFromCart}
-            setCart={setCartItems}
-          />
-        }
+        element={<Cart  />}
       />
+      
 
     </Routes>
 
