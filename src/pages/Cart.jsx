@@ -7,7 +7,6 @@ import { useCart } from "../context/CartContext"
 
 function Cart() {
   const { cartItems, removeFromCart, decreaseQuantity, increaseQuantity, setCart } = useCart()
-  
   const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
     name: "",

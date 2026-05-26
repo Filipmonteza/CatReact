@@ -1,7 +1,6 @@
 import "./styles/global.css"
 
 import { Routes, Route } from "react-router-dom"
-
 import Home from "./pages/Home"
 import Cats from "./pages/Cats"
 import Owner from "./pages/Owner"
@@ -9,6 +8,7 @@ import Cart from "./pages/Cart"
 import CatDetails from "./pages/CatDetails"
 
 function App() {
+
 
   return (
 
@@ -21,7 +21,7 @@ function App() {
 
       <Route
         path="/cats"
-        element={<Cats />}
+        element={<Cats  />}
       />
 
       <Route
@@ -36,8 +36,9 @@ function App() {
 
       <Route
         path="/cart"
-        element={<Cart />}
+        element={<Cart  />}
       />
+      
 
     </Routes>
 

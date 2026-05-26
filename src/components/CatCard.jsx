@@ -49,7 +49,6 @@ function CatCard({ cat }) {
           variant="dark"
           className="mt-auto w-100"
           onClick={() => addToCart(cat)}
-          disabled={isInCart}
         >
           {isInCart ? "In Cart" : "Add to Cart"}
         </Button>

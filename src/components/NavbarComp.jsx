@@ -6,7 +6,10 @@ import {useCart} from "../context/CartContext"
 function NavbarComp() {
   const { cartItems } = useCart()
 
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0)
+  const totalItems = cartItems.reduce(
+  (total, item) => total + (item.quantity || 0),
+  0
+)
 
   return (
     <Navbar bg="dark" variant="dark" expand="md"> 
@@ -28,7 +31,9 @@ function NavbarComp() {
             <CartFill size={20} />
             Cart
             {totalItems > 0 && (
-            <Badge bg="danger" pill>{totalItems}</Badge>
+              <Badge bg="danger" pill className="ms-1">
+                {totalItems}
+              </Badge>
             )}
         </Button>
       </Nav>

@@ -5,11 +5,13 @@ import { Cart, ArrowLeft } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import { fetchCats, fetchCatImage } from "../services/Api"
+import { useCart } from "../context/CartContext"
 
 
-function CatDetails({ addToCart }) {
+function CatDetails() {
   const { id } = useParams()
   const navigate = useNavigate()
+  const { addToCart } = useCart()
 
   const [cat, setCat] = useState(null)
   const [imageUrl, setImageUrl] = useState(null)
