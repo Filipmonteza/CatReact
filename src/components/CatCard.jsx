@@ -7,7 +7,7 @@ import { useCart } from "../context/CartContext"
 function CatCard({ cat }) {
   const [imageUrl, setImageUrl] = useState(null)
   const [loading, setLoading] = useState(true)
-    const {addToCart} = useCart()
+    const {addToCart, cartItems} = useCart()
 
   useEffect(() => {
     fetchCatImage(cat.id)
@@ -15,6 +15,8 @@ function CatCard({ cat }) {
       .catch(() => setImageUrl(null))
       .finally(() => setLoading(false))
   }, [cat.id])
+  
+  const isInCart = cartItems.some(item => item.id === cat.id)
 
   return (
     <Card className="h-100 shadow-sm">
@@ -47,8 +49,9 @@ function CatCard({ cat }) {
           variant="dark"
           className="mt-auto w-100"
           onClick={() => addToCart(cat)}
+          disabled={isInCart}
         >
-          Add to Cart
+          {isInCart ? "In Cart" : "Add to Cart"}
         </Button>
 
         <Button
