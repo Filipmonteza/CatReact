@@ -5,7 +5,7 @@ import { Cart, ArrowLeft } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import { fetchCats, fetchCatImage } from "../services/Api"
-import { useCart } from "../context/CartContext"
+import { useCart } from "../context/useCart"
 
 
 function CatDetails() {
