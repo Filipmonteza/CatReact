@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container, Button, Badge } from "react-bootstrap"
 import { CartFill } from "react-bootstrap-icons"
 import { Link } from "react-router-dom"
-import {useCart} from "../context/CartContext"
+import {useCart} from "../context/useCart"
 
 function NavbarComp() {
   const { cartItems } = useCart()

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { Card, Button, Spinner } from "react-bootstrap"
 import { fetchCatImage } from "../services/Api"
 import { Link } from "react-router-dom"
-import { useCart } from "../context/CartContext"
+import { useCart } from "../context/useCart"
 
 function CatCard({ cat }) {
   const [imageUrl, setImageUrl] = useState(null)

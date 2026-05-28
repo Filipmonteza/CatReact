@@ -3,7 +3,7 @@ import { Container, Row, Col, Card, Button, ButtonGroup, Modal, Form } from "rea
 import { CartFill } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
-import { useCart } from "../context/CartContext"
+import { useCart } from "../context/useCart"
 
 function Cart() {
   const { cartItems, removeFromCart, decreaseQuantity, increaseQuantity, setCart } = useCart()
