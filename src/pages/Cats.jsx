@@ -2,7 +2,7 @@ import Navbar from "../components/NavbarComp"
 import Footer from "../components/Footer"
 import CatList from "../components/CatList"
 import { useEffect, useState } from "react"
-import { fetchCats } from "../services/Api"
+import { fetchCats } from "../services/api"
 import SearchBar from "../components/SearchBar"
 import Pagination from "../components/Pagination"
 
