@@ -16,7 +16,7 @@ function Home() {
             Explore different cat breeds, learn about their unique characteristics, and find your perfect feline companion. Whether you're a cat lover or just curious, our app provides a delightful experience to discover the wonderful world of cats.
           </p>
 
-          <Link to="/Cats">
+          <Link to="/cats">
             <button className="explore-btn">Explore Breeds</button>
           </Link>
 

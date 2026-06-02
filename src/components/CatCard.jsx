@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Card, Button, Spinner } from "react-bootstrap"
-import { fetchCatImage } from "../services/Api"
+import { fetchCatImage } from "../services/api"
 import { Link } from "react-router-dom"
 import { useCart } from "../context/useCart"
 
