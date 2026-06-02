@@ -4,7 +4,7 @@ import { Card, Container, Spinner, Button, Row, Col } from "react-bootstrap"
 import { Cart, ArrowLeft } from "react-bootstrap-icons"
 import NavbarComp from "../components/NavbarComp"
 import Footer from "../components/Footer"
-import { fetchCats, fetchCatImage } from "../services/Api"
+import { fetchCats, fetchCatImage } from "../services/api"
 import { useCart } from "../context/useCart"
 
 
