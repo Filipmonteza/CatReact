@@ -48,7 +48,7 @@ function CatCard({ cat }) {
         <Button
           variant="dark"
           className="mt-auto w-100"
-          onClick={() => addToCart(cat)}
+          onClick={() => addToCart({ ...cat, image: imageUrl })}
         >
           {isInCart ? "In Cart" : "Add to Cart"}
         </Button>

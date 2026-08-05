@@ -43,6 +43,11 @@ function Cart() {
               {cartItems.map((cat) => (
                 <Col key={cat.id} xs={12} md={6} lg={4}>
                   <Card className="shadow-sm h-100">
+                    <Card.Img variant="top"
+                     src={cat.image}
+                      alt={cat.name} 
+                      style={{ height: "200px", objectFit: "cover" }} 
+                      />
                     <Card.Body className="d-flex justify-content-between align-items-center">
                       <div>
                         <Card.Title className="mb-1">{cat.name}</Card.Title>

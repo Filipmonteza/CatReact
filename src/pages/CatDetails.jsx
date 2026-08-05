@@ -94,7 +94,10 @@ function CatDetails() {
               variant="dark"
               size="lg"
               className="mt-3 d-flex align-items-center gap-2"
-              onClick={() => addToCart(cat)}
+              onClick={() => addToCart({
+              ...cat,
+              image: imageUrl
+            })}
             >
               <Cart size={20} /> Add to Cart
             </Button>
